@@ -1,11 +1,12 @@
 public class Average {
     public static void main(String[] args)
     {
-        double A = 5;
-        double B = 6;
-        double C = 7;
+      Scanner numbers=new Scanner(System.in);
+        double a =numbers.nextDouble();
+        double b =numbers.nextDouble();
+        double c =numbers.nextDouble();
 
-        double Average= (A/10*2) +(B/10*3) + (C/10*5) ;
+        double Average= (a/10*2) +(b/10*3) + (c/10*5) ;
 
         System.out.println("MEDIA = "+String.format("%.1f",Average));
     }
