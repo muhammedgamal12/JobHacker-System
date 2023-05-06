@@ -4,19 +4,17 @@ public class Ascending_Array
 {
     public static void main(String[] args)
     {
-        int [] ascending_array= new int [100] ;
+        int [] ascending_array= new int [5] ;
         int k = 0;
         do
         {
-            
+
             Scanner number =new Scanner(System.in);
             ascending_array[k] = number.nextInt();
 
-            //if you need to end the array press "00"
-            if (number.nextInt()==00){break;}
 
             k++;
-        }while (k < ascending_array.length-1);
+        }while (k < ascending_array.length);
         System.out.println(check_array(ascending_array));
     }
     private  static String check_array(int arr[])
