@@ -27,6 +27,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/src/Person/Person.java
-/src/Person/Student.java
-/src/Geometric/Triangle.java
+
