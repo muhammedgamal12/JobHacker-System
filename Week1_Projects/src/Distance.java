@@ -10,7 +10,7 @@ public class Distance {
         double x2 = numbers.nextDouble();
         double y2 = numbers.nextDouble();
 
-        double Distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        System.out.println(String.format("%.4f", Distance));
+        double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        System.out.println(String.format("%.4f", distance));
     }
 }
