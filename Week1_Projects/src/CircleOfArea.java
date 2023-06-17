@@ -6,7 +6,7 @@ public class CircleOfArea {
         Scanner radius = new Scanner(System.in);
 
         double r = radius.nextDouble();
-        final  double n = 3.14159;
+        final  double PI = 3.14159;
         double Area = n * (r * r);
 
         System.out.println("A="+String.format("%.4f",Area));
