@@ -7,7 +7,7 @@ public class CircleOfArea {
 
         double r = radius.nextDouble();
         final  double PI = 3.14159;
-        double Area = n * (r * r);
+        double Area = PI * (r * r);
 
         System.out.println("A="+String.format("%.4f",Area));
     }
