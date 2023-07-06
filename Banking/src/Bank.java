@@ -8,24 +8,61 @@ public class Bank {
 
     protected void Addnewaccount(Account account)
     {
-     bankaccounts.add(new Account(account.getAccount_number(),account.getAccount_Name(),account.getAccount_balance()));
+     bankaccounts.add(new Account(account.getAccountNumber(),account.getAccountName(),account.getAccountBalance()));
+    }
+    public  void Addsavingaccounts(SavingAccount account){
+        bankaccounts.add(new SavingAccount(account.getAccountNumber(),
+                account.getAccountName(),
+                account.getAccountBalance(),
+                account.getInterest_rate()));
     }
 
     protected void Deposit(double amount,int accountnumber) {
-        for (Account a : bankaccounts) {
-            if (a.getAccount_number() == accountnumber) {
-              a.setAccount_balance(a.getAccount_balance()+amount);
+        if(amount >0 ) {
 
+                Account a=Searchaccounts(accountnumber);
+                if (a!=null) {
+                    bankaccounts.set(bankaccounts.indexOf(a), new Account(accountnumber, a.getAccountName(), a.getAccountBalance() + amount));
+                }
+            else  {
+                System.out.println("You don't have any account in our bank ");
             }
         }
+        else {
+            System.out.println("the amount should be larger than zero Please try again");
+        }
     }
-    protected void Withdraw(double amount,int accountnumber)
-        {
+    protected void Withdraw(double amount,int accountnumber) {
+        Account a = Searchaccounts(accountnumber);
+        if (a != null) {
+            if (amount > 0 ) {
+            if (amount <= a.getAccountBalance()){
+                bankaccounts.set(bankaccounts.indexOf(a),new Account(accountnumber,
+                        a.getAccountName(),a.getAccountBalance()-amount));
+            }
+            else {
+                System.out.println("you don't have this amount in your Account");
+            }
+
+            } else {
+                System.out.println("you must choose amount larger than zero");
+            }
+
+        }
+        else {
+            System.out.println("This account doesn't exist");
+        }
+    }
+
+        protected  Account Searchaccounts(int accountnumber){
+        Account account = null;
             for (Account a : bankaccounts) {
-                if (a.getAccount_number() == accountnumber) {
-                    System.out.println(a.getAccount_balance());
+                if (a.getAccountNumber() == accountnumber) {
+                    account = a;
+                    break;
                 }
             }
+         return account;
         }
     @Override
     public String toString() {
@@ -36,8 +73,8 @@ public class Bank {
 
     protected void  Displaybalance(int accountnumbers){
         for (Account a: bankaccounts ) {
-            if (a.getAccount_number()==accountnumbers){
-                System.out.println(a.getAccount_balance());
+            if (a.getAccountNumber()==accountnumbers){
+                System.out.println(a.getAccountBalance());
             }
 
         }

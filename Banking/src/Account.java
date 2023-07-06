@@ -1,43 +1,59 @@
+
 public class Account {
 
-    private  int account_number ;
-    private String Account_Name;
-    private double Account_balance;
+    private  int accountNumber;
+    private String accountName;
+    private double accountBalance;
 
-    protected Account(int account_number, String account_Name, double account_balance) {
-        this.account_number=account_number;
-
-        Account_Name = account_Name;
-        Account_balance = account_balance;
+    protected Account(int accountNumber, String accountName, double accountBalance) {
+        this.accountNumber = accountNumber;
+        this.accountName = accountName;
+        this.accountBalance = accountBalance;
     }
 
     public Account() {
     }
 
-    public int getAccount_number() {
-        return account_number;
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
-    public String getAccount_Name() {
-        return Account_Name;
+    public String getAccountName() {
+        return accountName;
     }
 
-    public void setAccount_balance(double account_balance) {
-        Account_balance = account_balance;
-    }
 
-    public double getAccount_balance() {
-        return Account_balance;
+
+    public double getAccountBalance() {
+        return accountBalance;
     }
 
     protected void Deposit(double amount)
     {
-     Account_balance +=amount;
+     if (amount < 0)
+     {
+         System.out.println("Please add a positive amount");
+
+     }
+     else
+        accountBalance +=amount;
     }
 
     protected void Withdraw(double amount)
     {
-        Account_balance -=amount;
+        if(amount >accountBalance)
+        {
+            System.out.println(" you don't have this amount in your account Please select" +
+                    "another amount");
+        }
+        else {
+            if (amount > 0)
+                accountBalance -= amount;
+
+        else{
+                System.out.println("you must choose an amount more than Zero \"0\"");
+            }
+        }
     }
 
 
